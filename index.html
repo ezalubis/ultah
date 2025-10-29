@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Selamat Ulang Tahun 🎂</title>
+
+<style>
+  /* 🌸 Warna utama */
+  :root {
+    --pink: #ffb6c1;
+    --light-pink: #ffe6f0;
+    --accent: #ff6fa3;
+    --shadow: rgba(0, 0, 0, 0.15);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* 🌸 Tampilan umum */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #fff4f8, #ffe9f3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 50px 20px 80px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 6px #fff;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* 🎂 Kue utama */
+  .cake {
+    position: relative;
+    width: 360px;
+    height: 330px;
+    animation: float 3s ease-in-out infinite alternate;
+    margin-bottom: 90px;
+    z-index: 2;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+
+  /* 🍽 Piring */
+  .plate {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    height: 60px;
+    background: radial-gradient(circle at 50% 30%, #fff 30%, #ddd 70%, #bbb 100%);
+    border-radius: 50%;
+    box-shadow:
+      inset 0 2px 10px rgba(255,255,255,0.8),
+      inset 0 -2px 10px rgba(0,0,0,0.1),
+      0 10px 25px rgba(0,0,0,0.15);
+    z-index: 1;
+  }
+
+  /* 🍰 Badan kue */
+  .cake-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: 190px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #ffdce6 0%, #ffb6c1 50%, #ff9fb5 100%);
+    box-shadow:
+      inset 0 -10px 10px rgba(0,0,0,0.05),
+      0 5px 25px var(--shadow);
+    overflow: hidden;
+  }
+
+  .cake-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(to bottom, #fff 0%, #ffe6f0 100%);
+    border-radius: 20px 20px 0 0;
+  }
+
+  .frosting {
+    position: absolute;
+    top: 38px;
+    width: 100%;
+    height: 22px;
+    background: radial-gradient(circle, #fff 40%, #ffe6f0 80%, transparent 100%);
+    border-radius: 0 0 20px 20px;
+    z-index: 2;
+  }
+
+  /* 🕯 Lilin */
+  .candles {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 35px;
+    z-index: 3;
+  }
+
+  .candle {
+    position: relative;
+    width: 22px;
+    height: 80px;
+    background: linear-gradient(135deg, #fff0f5, #ffd1e0);
+    border: 2px solid #f6a1b5;
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px #fff6cc, 0 3px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  .candle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 6px;
+    background: #fff;
+    border-radius: 3px;
+  }
+
+  /* 🔥 Api lilin */
+  .flame {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 32px;
+    background: radial-gradient(circle, #fff5b7 20%, #ffcc33 60%, #ff9900 80%, transparent 100%);
+    border-radius: 50% 50% 40% 40%;
+    animation: flicker 0.18s infinite alternate;
+    filter: blur(0.5px) drop-shadow(0 0 12px #ffb200);
+  }
+
+  .glow {
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255,200,100,0.4), transparent 70%);
+    border-radius: 50%;
+    filter: blur(15px);
+    animation: pulse 1.3s infinite alternate;
+  }
+
+  @keyframes flicker {
+    from { transform: translateX(-50%) scale(1); opacity: 1; }
+    to { transform: translateX(-50%) scale(1.15); opacity: 0.85; }
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+  }
+
+  /* 💨 Tombol */
+  .btn {
+    position: relative;
+    z-index: 10;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 111, 176, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    background: #ff5c9e;
+  }
+
+  /* 🎉 Confetti */
+  .confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--color);
+    top: 0;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: fall 3s linear forwards;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* 📱 RESPONSIVE */
+  @media (max-width: 768px) {
+    body {
+      padding: 30px 15px 60px;
+    }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.8rem;
+    }
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+    .cake {
+      transform: scale(0.8);
+      margin-bottom: 70px;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 12px 28px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.6rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+    .cake {
+      transform: scale(0.7);
+      margin-bottom: 60px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <h1>🎉 Selamat Ulang Tahun Mery! 🎂</h1>
+  <p>
+    Selamat ulang tahun, Mery 🎂 Nggak kerasa ya, dari 2020 sampai sekarang kita udah sejauh ini.
+    Banyak banget hal yang udah dilewatin bareng, dari yang lucu sampai yang susah dilupain.
+    Makasih udah jadi teman yang tulus dan selalu ada. Semoga di umur baru ini kau makin kuat,
+    makin bahagia, dan semua impianmu tercapai. Tetap jadi Mery yang hangat dan nyebarin energi
+    positif ke sekitarmu. Dan semoga nanti, kalau ada waktu dan rezeki, kita bisa ketemu lagi yaaa.
+    Amin 🤍 🍰✨
+  </p>
+
+  <div class="cake">
+    <div class="plate"></div>
+    <div class="cake-body">
+      <div class="frosting"></div>
+    </div>
+
+    <div class="candles" id="candles">
+      <div class="candle"><div class="glow"></div><div class="flame"></div></div>
+      <div class="candle"><div class="glow"></div><div class="flame"></div></div>
+      <div class="candle"><div class="glow"></div><div class="flame"></div></div>
+      <div class="candle"><div class="glow"></div><div class="flame"></div></div>
+    </div>
+  </div>
+
+  <button class="btn" id="btn">💨 Tiup Lilin</button>
+
+  <script>
+    const candles = document.querySelectorAll(".candle");
+    const btn = document.getElementById("btn");
+    const body = document.body;
+    let flameOn = true;
+
+    function randomColor() {
+      const colors = ['#ff9aa2', '#ffb6c1', '#ffd6e0', '#f7b7a3', '#ffcce7', '#ffe6f0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function createConfetti() {
+      for (let i = 0; i < 200; i++) {
+        const c = document.createElement("div");
+        c.classList.add("confetti");
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.background = randomColor();
+        c.style.width = c.style.height = Math.random() * 10 + 5 + "px";
+        c.style.animationDelay = Math.random() * 0.5 + "s";
+        body.appendChild(c);
+        c.addEventListener("animationend", () => c.remove());
+      }
+    }
+
+    function toggleFlame() {
+      candles.forEach(candle => {
+        const flame = candle.querySelector(".flame");
+        const glow = candle.querySelector(".glow");
+        if (flameOn) {
+          flame.style.display = "none";
+          glow.style.display = "none";
+        } else {
+          flame.style.display = "block";
+          glow.style.display = "block";
+        }
+      });
+      if (flameOn) {
+        createConfetti();
+        btn.textContent = "🕯 Nyalakan Lilin Lagi";
+      } else {
+        btn.textContent = "💨 Tiup Lilin";
+      }
+      flameOn = !flameOn;
+    }
+
+    btn.addEventListener("click", toggleFlame);
+    candles.forEach(candle => candle.addEventListener("click", toggleFlame));
+  </script>
+
+</body>
+</html>
